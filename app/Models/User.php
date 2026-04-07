@@ -1,16 +1,12 @@
 <?php
 
 namespace App\Models;
-
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
-{
-    /** @use HasFactory<UserFactory> */
+class User extends Authenticatable{
     use HasFactory, Notifiable;
 
     /**
@@ -22,6 +18,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role_id', // ➜ afegit per als rols
     ];
 
     /**
@@ -46,4 +43,22 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    /* ---------------------------------------------------
+     | RELACIONS ELOQUENT
+     |---------------------------------------------------- */
+
+    // 🔹 Un usuari té un rol (admin o client)
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
+
+    // 🔹 Un usuari pot tenir moltes comandes
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+   
 }
