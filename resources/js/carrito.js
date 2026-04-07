@@ -26,3 +26,18 @@ function agregarAlCarrito(producto) {
     saveCarrito(carrito);
     alert('Producto añadido al carrito');
 }
+
+function eliminarDelCarrito(id) {
+    let carrito = getCarrito();
+    carrito = carrito.filter(p => p.id !== id);
+    saveCarrito(carrito);
+}
+
+function cambiarCantidad(id, cantidad) {
+    let carrito = getCarrito();
+    let item = carrito.find(p => p.id === id);
+    if (item) {
+        item.cantidad = cantidad;
+        saveCarrito(carrito);
+    }
+}

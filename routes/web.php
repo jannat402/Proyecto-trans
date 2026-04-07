@@ -52,4 +52,10 @@ Route::post('/carrito/agregar', [CarritoController::class, 'agregar'])->name('ca
 Route::post('/carrito/eliminar', [CarritoController::class, 'eliminar'])->name('carrito.eliminar');
 Route::post('/carrito/vaciar', [CarritoController::class, 'vaciar'])->name('carrito.vaciar');
    
+Route::post('/checkout', [CarritoController::class, 'checkout'])
+    ->middleware('auth')
+    ->name('checkout');
 
+Route::post('/carrito/sincronizar', [CarritoController::class, 'sincronizar'])
+    ->middleware('auth')
+    ->name('carrito.sincronizar');

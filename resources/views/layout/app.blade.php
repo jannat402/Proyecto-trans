@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>@yield('title', 'PetShop')</title>
     <script src="{{ asset('js/carrito.js') }}"></script>
+    <script src="{{ asset('js/register.js') }}"></script>
     @vite('resources/css/app.css')
 </head>
 <script>
