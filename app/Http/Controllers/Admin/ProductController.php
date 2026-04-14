@@ -31,7 +31,7 @@ class ProductController extends Controller
             $p->save();
         });
 
-        return back()->with('success', 'Descompte aplicat correctament!');
+        return back()->with('success', 'Descuento aplicado correctamente!');
     }
 
     // API per al gràfic
@@ -43,6 +43,31 @@ class ProductController extends Controller
             'labels' => $productos->pluck('nombre'),
             'data' => $productos->map(fn($p) => $p->total_vendido)
         ]);
+    }
+
+     public function store(Request $request)
+    {
+        $request->validate([
+            'nombre' => 'required',
+            'precio' => 'required|numeric',
+            'stock' => 'required|integer',
+            'subcategory_id' => 'required|exists:subcategories,id'
+        ]);
+
+        return Product::create($request->all());
+    }
+
+    public function update(Request $request, $id)
+    {
+        $prod = Product::findOrFail($id);
+        $prod->update($request->all());
+        return $prod;
+    }
+
+    public function destroy($id)
+    {
+        Product::destroy($id);
+        return response()->json(['message' => 'Producte eliminat']);
     }
 }
 
