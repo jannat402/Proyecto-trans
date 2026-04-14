@@ -26,4 +26,10 @@ class Product extends Model
                     ->withPivot('cantidad', 'precio_unitario', 'has_to_comment')
                     ->withTimestamps();
     }
+
+    public function getTotalVendidoAttribute()
+    {
+        return $this->orders->sum('pivot.cantidad');
+    }
+
 }
