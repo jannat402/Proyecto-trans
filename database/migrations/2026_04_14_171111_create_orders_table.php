@@ -13,19 +13,28 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+
             $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')
+                ->references('id')->on('users')
+                ->onDelete('cascade');
+
             $table->string('estado')->default('pendiente');
+
+            // Enviament
             $table->string('nombre');
             $table->string('direccion_envio');
             $table->string('ciudad');
             $table->string('provincia');
             $table->string('cp');
             $table->string('telefono');
-            $table->string('direccion_facturacion');
-            $table->decimal('total', 10, 2);
-            $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            // Facturació
+            $table->string('direccion_facturacion');
+
+            $table->decimal('total', 10, 2);
+
+            $table->timestamps();
         });
     }
 

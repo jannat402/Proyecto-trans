@@ -8,23 +8,21 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-    */
-    public function up()
+     */
+   public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->unsignedBigInteger('role_id')->default(2);
-            $table->foreign('role_id')->references('id')->on('roles');
+        Schema::create('roles', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->timestamps();
         });
     }
-
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('roles');
     }
 };

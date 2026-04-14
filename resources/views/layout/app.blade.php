@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <header class="bg-white shadow-md p-4 flex justify-between items-center">
 
     <!-- Logo -->
-    <h1 class="text-2xl font-bold text-pink-500">
+    <h1 class="text-2xl font-bold text-blue-500">
         <a href="/">PetShop</a>
     </h1>
 
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <div class="flex items-center gap-4">
 
         <!-- Carrito -->
-        <a href="/carrito" class="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-700">
+        <a href="/carrito" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">
             Carrito
         </a>
 
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
         @auth
         <form action="/logout" method="POST">
             @csrf
-            <button class="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-700">
+            <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">
                 Cerrar sesión
             </button>
         </form>
@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         <!-- Si NO está logueado -->
         @guest
-        <a href="/login" class="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-700">Iniciar sesión</a>
+        <a href="/login" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">Iniciar sesión</a>
         @endguest
 
     </div>

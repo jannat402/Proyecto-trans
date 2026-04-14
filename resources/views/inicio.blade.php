@@ -5,7 +5,7 @@
 @section('content')
 
 <!-- HERO -->
-<section class="bg-pink-400 text-white text-center py-16">
+<section class="bg-blue-400 text-white text-center py-16">
     <h2 class="text-4xl font-bold mb-4">Todo para tu perro y tu gato</h2>
     <p class="text-lg">Piensos, higiene y accesorios al mejor precio</p>
 </section>

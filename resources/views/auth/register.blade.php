@@ -8,7 +8,7 @@
     <h2 class="text-2xl font-bold mb-4 text-center">Crear cuenta</h2>
 
     @if($errors->any())
-        <p class="text-pink-500 mb-3">{{ $errors->first() }}</p>
+        <p class="text-blue-500 mb-3">{{ $errors->first() }}</p>
     @endif
 
     <form id="formRegister" method="POST" action="{{ route('register') }}">

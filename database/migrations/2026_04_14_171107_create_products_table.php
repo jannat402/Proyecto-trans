@@ -18,8 +18,12 @@ return new class extends Migration
             $table->decimal('precio', 8, 2);
             $table->integer('stock');
             $table->string('imagen')->nullable();
+
             $table->unsignedBigInteger('subcategory_id');
-            $table->foreign('subcategory_id')->references('id')->on('subcategories')->onDelete('cascade');
+            $table->foreign('subcategory_id')
+                ->references('id')->on('subcategories')
+                ->onDelete('cascade');
+
             $table->timestamps();
         });
     }
